@@ -1,0 +1,185 @@
+/* ============================
+   GLOBAL RESET & LOCK
+============================ */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+}
+
+/* ============================
+   MAIN LAYOUT
+============================ */
+.policy-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  grid-template-rows: auto 1fr;
+  width: 100%;
+  min-height: 70vh;
+  background: #ffffff;
+  color: #222;
+}
+
+/* ============================
+   LEFT SIDEBAR
+============================ */
+.policy-sidebar {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 32px;
+  width: 100%;
+  padding: 20px 24px;
+  border-bottom: 1px solid #E6E6E6;
+  overflow-x: auto;
+}
+
+.policy-sidebar h3 {
+  font-size: 0.85rem;
+  margin: 24px 0 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #111;
+}
+
+.policy-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.policy-sidebar li {
+  margin: 8px 0;
+  font-size: 0.95rem;
+  cursor: pointer;
+  color: #444;
+  transition: color 0.2s ease;
+}
+
+.policy-sidebar li:hover,
+.policy-sidebar li.active {
+  color: rgb(12, 89, 219);
+  font-weight: 600;
+}
+
+/* ============================
+   CENTER CONTENT (ONLY SCROLL)
+============================ */
+.policy-content {
+  width: auto;
+  height: auto;
+  padding: 48px 56px 80px;
+  overflow: visible;
+}
+
+/* Typography */
+.policy-content h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.policy-content .last-updated {
+  font-size: 0.85rem;
+  color: #777;
+  margin-bottom: 36px;
+}
+
+.policy-content h2 {
+  font-size: 1.25rem;
+  margin: 64px 0 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-left: 4px solid rgb(12, 89, 219);
+  padding-left: 12px;
+}
+
+.policy-content p {
+  margin-bottom: 18px;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #333;
+}
+
+.policy-content a {
+  color: rgb(12, 89, 219);
+  text-decoration: none;
+}
+
+.policy-content a:hover {
+  text-decoration: underline;
+}
+
+/* ============================
+   RIGHT TOC
+============================ */
+.policy-toc {
+  width: auto;
+  height: fit-content;
+  position: sticky;
+  top: 96px;
+  padding: 32px 24px;
+  border-left: 1px solid #E6E6E6;
+  overflow: visible;
+}
+
+.policy-toc h3 {
+  font-size: 0.85rem;
+  margin-bottom: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.policy-toc ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.policy-toc li {
+  margin: 8px 0;
+}
+
+.policy-toc li a {
+  font-size: 0.9rem;
+  color: #555;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.policy-toc li.active a,
+.policy-toc li a:hover {
+  color: rgb(12, 89, 219);
+  font-weight: 600;
+}
+
+/* ============================
+   RESPONSIVE (STACK MODE)
+============================ */
+@media (max-width: 992px) {
+  html,
+  body {
+    overflow: auto;
+  }
+
+  .policy-layout {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .policy-sidebar,
+  .policy-content,
+  .policy-toc {
+    width: 100%;
+    height: auto;
+    padding: 24px;
+    overflow: visible;
+    border: none;
+  }
+}

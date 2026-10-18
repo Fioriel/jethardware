@@ -1,0 +1,17 @@
+{
+  "name": "New Jet Hardware & Electrical Supplies",
+  "short_name": "Jet Hardware",
+  "description": "Hardware and electrical supplies in Danao City, Cebu",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#C41230",
+  "icons": [
+    {
+      "src": "/images/jet-logo.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    }
+  ]
+}

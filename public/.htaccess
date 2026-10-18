@@ -1,0 +1,28 @@
+Options -Indexes -MultiViews
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Avoid rewrite loops
+    RewriteRule ^index\.html$ - [L]
+
+    # Load real files and folders normally
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Keep API and asset requests separate
+    RewriteRule ^(?:api|\.well-known|assets|static)(?:/|$) - [L,NC]
+
+    # Fix 404 errors when refreshing app pages
+    RewriteCond %{REQUEST_METHOD} ^(?:GET|HEAD)$
+    RewriteRule ^ index.html [L]
+</IfModule>
+
+# Check for updated HTML after deployments
+<IfModule mod_headers.c>
+    <Files "index.html">
+        Header set Cache-Control "no-cache"
+    </Files>
+</IfModule>
